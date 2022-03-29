@@ -34,7 +34,7 @@
                 <form action="{{ route('search') }}" method="POST" id="myForm">
                     @csrf
                     <div class="form-group text-center">
-                        <img src="" width="400px" id="output" alt="" style="border: 2px solid rgb(238, 189, 189)">
+                        <img src="" width="300px" id="output" alt="" style="border: 2px solid rgb(238, 189, 189)">
                         <input type="text" autofocus autocomplete="off" class="form-control text-center mt-2"
                             name="search" placeholder="Enter Key" id="search">
                         <input type="file" autofocus autocomplete="off" class="form-control text-center mt-2" id="img">
@@ -220,11 +220,12 @@
         const input = document.getElementById('img');
         input.addEventListener('change', function(e) {
             const img = e.target.files[0]
+            // console.log(img)
 
             const ext = img.name.split('.').pop();
-            console.log(ext);
-            if (ext !== 'png') {
+            if (ext !== 'png'  && ext !== 'jpg') {
                 alert('only jpg and png upload here')
+                e.target.value = "";
             } else {
                 const output = document.getElementById('output');
                 output.src = URL.createObjectURL(img);
