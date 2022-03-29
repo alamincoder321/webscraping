@@ -38,7 +38,5 @@ class SearchController extends Controller
             $all = Http::get($this->url . $key . '?api_key=955df506af92364cd94a8289d4165e01')->json();
 
             return response()->json(['data' => $all]);
-
-
     }
 }
