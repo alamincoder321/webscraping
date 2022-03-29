@@ -17,7 +17,6 @@
         #search::placeholder {
             text-align: center;
         }
-
     </style>
 
 </head>
@@ -27,7 +26,7 @@
         <div class="row justify-content-center" style="margin-top: 100px;">
             <div class="text-center text-danger error success">
                 @if (Session::has('msg'))
-                    {{ Session::get('msg') }}
+                {{ Session::get('msg') }}
                 @endif
             </div>
             <div class="col-md-6">
@@ -35,8 +34,7 @@
                     @csrf
                     <div class="form-group text-center">
                         <img src="" width="300px" id="output" alt="" style="border: 2px solid rgb(238, 189, 189)">
-                        <input type="text" autofocus autocomplete="off" class="form-control text-center mt-2"
-                            name="search" placeholder="Enter Key" id="search">
+                        <input type="text" autofocus autocomplete="off" class="form-control text-center mt-2" name="search" placeholder="Enter Key" id="search">
                         <input type="file" autofocus autocomplete="off" class="form-control text-center mt-2" id="img">
                     </div>
                     <div class="form-group text-center">
@@ -184,7 +182,7 @@
         </div>
     </div>`;
 
-            let imgs = ` <img width="450" height="530"
+                        let imgs = ` <img width="450" height="530"
                                         src="https://image.tmdb.org/t/p/original/${data.data.poster_path}"
                                         alt="">
                                     <div class="form-group mt-3">
@@ -199,9 +197,9 @@
                                             value="https://image.tmdb.org/t/p/original${data.data.backdrop_path}">
                                     </div>`;
 
-                        if(data.data.poster_path){
+                        if (data.data.poster_path) {
                             document.getElementById('imgs').innerHTML = imgs;
-                        }else{
+                        } else {
                             document.getElementById('imgs').innerHTML = "<p class='text-center'>No Image Path</p>";
                         }
 
@@ -223,7 +221,7 @@
             // console.log(img)
 
             const ext = img.name.split('.').pop();
-            if (ext !== 'png'  && ext !== 'jpg') {
+            if (ext.toLowerCase() !== 'png' && ext.toLowerCase() !== 'jpg') {
                 alert('only jpg and png upload here')
                 e.target.value = "";
             } else {
